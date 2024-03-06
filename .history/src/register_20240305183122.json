@@ -1,0 +1,5 @@
+{
+    "condition1": "/[a-z]/g" ,
+    "condition2": " /[A-Z]/g",
+    "condition3":   "/[0-9]/g"
+}
