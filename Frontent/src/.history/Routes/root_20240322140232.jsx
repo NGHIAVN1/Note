@@ -1,0 +1,22 @@
+import { Outlet, useLoaderData, Link } from "react-router-dom";
+import { Box } from "@mui/material"; // Add the missing import statement
+import Header from "./Header";
+import SlideBar from "./Slidebar";
+import { getItems } from "../items";
+export async function loader() {
+  const note = await getItems();
+  return { items };
+}
+
+export default function Root() {
+  const { items } = useLoaderData();
+  return (
+    <>
+      <div>
+        <Header />
+        <SlideBar />
+        <Outlet />
+      </div>
+    </>
+  );
+}
