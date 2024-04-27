@@ -18,15 +18,16 @@ import UserContext from "../context/user-context";
 // const defaultTheme = createTheme();
 const LoginPage = () => {
   const user = useContext(UserContext);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     if (isAuth()) {
       navigate("/");
     }
   });
+
   const handleSubmit = async (e) => {
     console.log("handle login");
     auth(email, password)
@@ -34,6 +35,7 @@ const LoginPage = () => {
         console.log(response);
         alert("Đăng nhập thành công ");
         const data = response.data;
+        console.log(data);
         if (data) {
           const token = data.accessToken;
           localStorage.setItem("user-data", JSON.stringify(token));

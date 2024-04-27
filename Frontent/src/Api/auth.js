@@ -16,5 +16,8 @@ export const signup = (emailIp, usernameIp, passwordIp) => {
   });
   return signupUser;
 };
-export const logout
+export const logout = () => {
+  const logoutUser = instance.post("Users/logout");
+  return signupUser;
+};
 export default auth;

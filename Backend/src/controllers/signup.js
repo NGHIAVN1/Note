@@ -1,11 +1,11 @@
+const dataUser = require('../models/users')
 module.exports =
 {
     async signupUser(req, res) {
-    const data= new  dataUser(req.body);
+    const data = new  dataUser(req.body);
     try {
         await data.save();
-        console.log(token);
-        res.send(token);
+        res.redirect('/Users/login');
     } catch (error) {
             console.log(error),
             res.redirect('/Users/signup');

@@ -1,7 +1,6 @@
-exports =
+module.exports =
 {
-     function (req, res) {
-        res.clearCookie('jwt');
-        res.send('Cookie cleared');
+       ClearCookie(req, res) {
+        res.clearCookie('jwt').send('cookie cleared');
     }
 }

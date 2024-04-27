@@ -6,8 +6,8 @@ const Collection_DB = Schema(
             type: String,
             required: true
         },
-        userId: {type: Schema.Types.ObjectId, ref: 'user'}
-    },{
+        userId: {type: Schema.Types.ObjectId, ref: 'user'},
+        
     }
 )
 module.exports= mongoose.model('collections', Collection_DB);

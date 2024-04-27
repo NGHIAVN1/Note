@@ -5,13 +5,18 @@ import LoginPage from "./Components/LoginPages";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./Components/homepage";
 import RegisterUser from "./Components/Register";
-import newNote from "./Components/Notes/newnote";
+import NewCollection from "./Components/newcollection";
 const container = document.getElementById("root");
 const App = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
-    children: [{ path: "newnote", element: <newNote /> }],
+    children: [
+      {
+        path: "/collection",
+        element: <NewCollection />,
+      },
+    ],
   },
   {
     path: "/login",

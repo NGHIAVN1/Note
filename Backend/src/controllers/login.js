@@ -3,16 +3,14 @@ const jwt = require('jsonwebtoken')
 const dataUser = require('../models/users');
 const cookie = require('cookie-parser');
 
-function generateAccessToken(username){
-    return jwt.sign(username, process.env.TOKEN_SECRET, {expiresIn: '18000s'})
+function generateAccessToken(_id){
+    return jwt.sign(_id, process.env.TOKEN_SECRET, {expiresIn: '18000s'})
 }
 module.exports ={
     
     async getLogin  (req, res){
-    const data = await dataUser.find ({
-
-     });
-     try {
+    const data = await dataUser.find()
+     try {;
         console.log(data.toString());
     res.json(data);    
      } catch (error) {
@@ -23,27 +21,29 @@ module.exports ={
 
 
 async authLogin(req, res){
-    const {email, password} = req.body;
-    const data = await dataUser.findOne({email: email});
-    const accessToken = await generateAccessToken({email: email });
+    const {email, password, _id} = req.body;
+    const data = await dataUser.findOne({ email: email });
+    const accessToken = await generateAccessToken({_id: _id });
     console.log(data);
+    console.log(accessToken)
 
     if(email){
         bcrypt.compare(password, data.password, (err, same)=>{
             if(same == true){
                  res.cookie('jwt', accessToken, {
                     httpOnly: true,
-                    maxAge: 3600000,
+                    maxAge: 360000,
                     secure:true
                 }).status(200).json({accessToken, success: true});
-
-
+                
+                console.log(accessToken)
                 // res.redirect('/');
             }
             else{
                 res.redirect('/Users/login');
             }
         })
+        
     }
     else{
         res.send("login fail");

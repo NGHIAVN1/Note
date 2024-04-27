@@ -16,7 +16,7 @@ routes.get('/auth', auth.authenticateToken, (req, res)=>{
 routes.get('/Users/signup',(req, res)=>{
     res.send("");
 })
-// routes.post('/Users/signup', userSignup.signupUser);
+ routes.post('/Users/signup', userSignup.signupUser);
 
 routes.get("/Users/login",userLogin.getLogin);
 routes.post("/Users/login", userLogin.authLogin);
@@ -24,8 +24,8 @@ routes.post("/Users/login", userLogin.authLogin);
 // routes.post("/Notes/new", auth.newNote);
 // routes.get("/Notes/new", auth.getNotes);
 
-// routes.post("/Collection/new",collection.NewCollection);
+routes.post("/Collection/new",collection.NewCollection);
 // routes.get("/Collection/note",auth.authenticateToken, collection.GetCollection)
 // ;
-routes.post("User/logout", user.Logout);
+routes.post("User/logout", user.ClearCookie);
 module.exports =routes;

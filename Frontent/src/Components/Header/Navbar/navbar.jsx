@@ -54,12 +54,11 @@ const Navbar = (props) => {
           flexGrow: 1,
         }}
       >
-        <p>{user}</p>
         <Toolbar sx={{ flexDirection: "row" }}>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color="primary"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
@@ -88,8 +87,8 @@ const Navbar = (props) => {
             sx={{ marginLeft: "60%", marginRight: "30px" }}
           ></Button>
           <Button variant="contained">
-            <Link to={`/Signin`} under>
-              Signin
+            <Link to={`/Login`} underline>
+              Logout
             </Link>
           </Button>
         </Toolbar>

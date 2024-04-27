@@ -1,5 +1,5 @@
-require('dotenv').config();
-const bcrypt = require('bcrypt');
+
+const mongoose = require('mongoose');
 
 // import users from './src/models/users';
 const useUser = require('./src/models/users');

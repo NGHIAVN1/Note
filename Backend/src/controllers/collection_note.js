@@ -1,8 +1,13 @@
 const collection =require('../models/collection');
+const mongoose = require('mongoose')
 module.exports ={
 
     async NewCollection(req, res){
-        const data = new collection(req.data);
+        const data = new collection({
+            name: req.body.name,
+            userId: req.body.userId
+
+        });
         try {
             const dataCollection = await data.save();
             console.log(dataCollection.toString());
