@@ -16,5 +16,5 @@ export const signup = (emailIp, usernameIp, passwordIp) => {
   });
   return signupUser;
 };
-
+export const logout
 export default auth;

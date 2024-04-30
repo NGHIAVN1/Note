@@ -10,11 +10,13 @@ const auth = require('./src/routes/routes');
  const app = express();
  const bodyParser = require('body-parser');
 const routes = require('./src/routes/routes');
-const { authenticateToken } = require('./src/controllers/auth');
+// const { authenticateToken } = require('./src/middlewares/auth');
 app.set('view engine', 'html');
+
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
  app.use(cors());
+
 connect;
 app.use(routes);
 app.use((req, res) => {
